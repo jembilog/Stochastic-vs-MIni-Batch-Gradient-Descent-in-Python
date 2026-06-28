@@ -47,4 +47,7 @@ for epoch in range(epochs):
 Y_prediction = w * 10 + b
 print(Y_prediction)
 plt.plot(mse_history)
+plt.xlabel("Epochs")
+plt.ylabel("Loss")
+plt.grid(True)
 plt.show()
