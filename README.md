@@ -30,7 +30,7 @@ The graph above shows the Mean Squared Error (MSE) throughout the training proce
 - NumPy
 - Matplotlib
 
-#Stochastic Gradient Descent from Scratch
+# Stochastic Gradient Descent from Scratch
 
 A simple implementation of Linear Regression using **Stochastic Gradient Descent (SGD)** built entirely with **NumPy**. The model learns the relationship between screen time and battery usage by updating its parameters after processing **one training sample at a time**.
 
@@ -46,7 +46,7 @@ The graph illustrates the Mean Squared Error (MSE) across training epochs. Becau
 
 ---
 
-##Hyperparameters
+## Hyperparameters
 
 | Parameter | Value |
 |-----------|------:|
@@ -56,7 +56,7 @@ The graph illustrates the Mean Squared Error (MSE) across training epochs. Becau
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - Python
 - NumPy
