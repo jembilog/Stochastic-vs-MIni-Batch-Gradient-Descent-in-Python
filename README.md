@@ -1,10 +1,44 @@
+# Vanilla Gradient Descent from Scratch
+
+A simple implementation of **Linear Regression** using **Vanilla (Batch) Gradient Descent** built entirely with **NumPy**. The model learns the relationship between screen time and battery usage by computing gradients using the **entire dataset** before updating the model parameters.
+
+---
+
+## Training Loss
+
+<p align="center">
+  <img src="loss_curves_graph/Vanilla_GD" width="700">
+</p>
+
+The graph shows the Mean Squared Error (MSE) during training. Since Vanilla Gradient Descent calculates gradients using all training samples before each update, the loss decreases smoothly with minimal fluctuations. This steady decline indicates that the model is gradually converging toward an optimal solution.
+
+---
+
+## Hyperparameters
+
+| Parameter | Value |
+|-----------|------:|
+| Learning Rate | 0.005 |
+| Epochs | 2000 |
+| Optimizer | Vanilla (Batch) Gradient Descent |
+
+---
+
+## Technologies Used
+
+- Python
+- NumPy
+- Matplotlib
+
+---
+
 # Mini-Batch Gradient Descent from Scratch
 
 A simple implementation of Linear Regression using Mini-Batch Gradient Descent with NumPy.
 
 ---
 
-##Training Loss
+## Training Loss
 
 <p align="center">
   <img src="loss_curves_graph/Mini_Batch.png" width="700">
@@ -14,7 +48,7 @@ The graph above shows the Mean Squared Error (MSE) throughout the training proce
 
 ---
 
-##Hyperparameters
+## Hyperparameters
 
 | Parameter | Value |
 |-----------|------:|
@@ -36,7 +70,7 @@ A simple implementation of Linear Regression using **Stochastic Gradient Descent
 
 ---
 
-##Training Loss
+## Training Loss
 
 <p align="center">
   <img src="loss_curves_graph/Stochastic.png" width="700">
