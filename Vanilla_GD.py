@@ -1,56 +1,51 @@
 import numpy as np
+import matplotlib.pyplot as plt
+screen_time = np.array([
+    3.6, 7.7, 6.1, 5.2, 2.1, 2.1, 1.4, 7.1, 5.2, 6.0,
+    1.1, 7.8, 6.8, 2.5, 2.3, 2.3, 3.1, 4.7, 4.0, 3.0
+])
 
-X = np.array([1,2,3,4,5])#features
-Y = np.array([28,29,30,31,32])#output
+battery_used = np.array([
+    43.0, 94.0, 72.0, 61.0, 34.0, 28.0, 21.0, 82.0, 63.0, 74.0,
+    14.0, 96.0, 81.0, 33.0, 30.0, 37.0, 41.0, 56.0, 53.0, 36.0
+])
 
-w = 0.0
-b = 0.0
+w = 0 
+b = 0 
+n = len(screen_time)
+learning_rate = 0.005
+epochs = 2000
+mse_history = []
 
-alpha = 0.01
-epochs = 1000
-n = len(X)
-
-#gradient descent
 for epoch in range(epochs):
-    Y_predict = w * X + b
+    Y_pred = w * screen_time + b
+    mse = np.mean((battery_used - Y_pred) ** 2)
+    mse_history.append(mse)
 
-    #partial derivative of weight
-    dw = (-2 / n) * np.sum(X * (Y - Y_predict))
-    #partial derivative of bias
-    db = (-2 /n) * np.sum(Y - Y_predict)
+    dw = (-2/n) * np.sum(screen_time * (battery_used - Y_pred))
+    db = (-2/n) * np.sum(battery_used - Y_pred)
 
-    #update rule 
-    w -= alpha * dw
-    b -= alpha * db
+    w -= learning_rate * dw
+    b -= learning_rate * db
 
-Y_predict = w * X + b#need ulit ng variable ng ypred for mse,rmse,mae kasi local var lang yung kanina na na sa for loop
+    if(epoch  +1) % 10 == 0:
+        print(
+            f"Epoch: {epoch + 1} | "
+            f"MSE: {mse:.4f} | "
+            f"w: {w:.4f} | "
+            f"b: {b:.4f} | "
+            f"Predicted value: {Y_pred}"
+        )
+Ypred = w * 3.5 + b
+ss_res = np.sum((battery_used - Y_pred) ** 2)
+ss_total = np.sum((battery_used - np.mean(battery_used)) ** 2)
+r2 = 1 - (ss_res / ss_total)
 
-#checking loss and accuracy
-mse = np.mean((Y - Y_predict)**2)
-rmse = np.sqrt(mse)
-mae = np.mean(np.abs(Y - Y_predict))
-
-ss_res = np.sum((Y - Y_predict) ** 2)
-ss_tot = np.sum((Y - np.mean(Y)) ** 2)
-r2 = 1 - (ss_res / ss_tot)
-
-nextfeature = 7
-prediction = w * nextfeature + b
-#updated bias and weight na yung nakalagay rito since nakuha na ni gradient descent yung best weight ans bias
-
-print("MODEL PARAMETERS")
-print(f"Weight/Slope (w): {w:.4f}")
-print(f"Bias/Intercept (b): {b:.4f}")
-
-print("\nTRAINING RESULTS")
-for x, actual, pred in zip(X, Y, Y_predict):
-    print(f"Iteration {int(x)} | Actual: {actual:.2f} | Predicted:{pred:.2f}")
-
-print("\nEVALUATION")
-print(f"MSE : {mse:.4f}")
-print(f"RMSE : {rmse:.4f}")
-print(f"MAE : {mae:.4f}")
-print(f"R2 : {r2:.4f}")
-
-print("\nPREDICTION")
-print(f"Predicted number at index{nextfeature} : {prediction}")
+plt.plot(mse_history)
+plt.title("Error minimization")
+plt.xlabel("Epochs")
+plt.ylabel("Loss")
+plt.grid(True)
+print(Ypred)
+print(r2 * 100)
+plt.show()
