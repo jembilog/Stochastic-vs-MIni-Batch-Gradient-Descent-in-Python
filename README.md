@@ -7,7 +7,7 @@ A simple implementation of **Linear Regression** using **Vanilla (Batch) Gradien
 ## Training Loss
 
 <p align="center">
-  <img src="loss_curves_graph/Vanilla_GD" width="700">
+  <img src="loss_curves_graph/Vanilla_GD.png" width="700">
 </p>
 
 The graph shows the Mean Squared Error (MSE) during training. Since Vanilla Gradient Descent calculates gradients using all training samples before each update, the loss decreases smoothly with minimal fluctuations. This steady decline indicates that the model is gradually converging toward an optimal solution.
