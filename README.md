@@ -24,7 +24,7 @@ The graph above shows the Mean Squared Error (MSE) throughout the training proce
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 - Python
 - NumPy
